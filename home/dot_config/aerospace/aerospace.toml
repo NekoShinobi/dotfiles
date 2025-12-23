@@ -136,6 +136,10 @@ on-mode-changed = []
     alt-minus = 'resize smart -50'
     alt-equal = 'resize smart +50'
 
+    alt-f = 'fullscreen'
+
+
+
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
     alt-1 = 'workspace 1'
     alt-2 = 'workspace 2'
@@ -151,7 +155,6 @@ on-mode-changed = []
     alt-c = 'workspace C'
     alt-d = 'workspace D'
     alt-e = 'workspace E'
-    alt-f = 'workspace F'
     alt-g = 'workspace G'
     alt-i = 'workspace I'
     alt-m = 'workspace M'
