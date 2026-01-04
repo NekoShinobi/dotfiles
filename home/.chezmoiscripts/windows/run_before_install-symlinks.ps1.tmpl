@@ -1,0 +1,2 @@
+# Set nvim symlink because I can't seem to figure out how to get it to use XDG_CONFIG_HOME
+New-Item -ErrorAction Ignore -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\nvim" -Value "C:\users\user\.config\nvim"
