@@ -23,4 +23,6 @@ try {
     Write-Host "Error setting alias vim: $_"
 }
 
-Write-Host "PowerShell profile loaded."1a
+# Use bash-like keybindings
+Set-PSReadLineKeyHandler -Chord Ctrl-a -Function BeginningOfLine
+Set-PSReadLineKeyHandler -Chord Ctrl-e -Function EndOfLine
