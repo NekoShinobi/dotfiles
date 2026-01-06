@@ -26,3 +26,4 @@ try {
 # Use bash-like keybindings
 Set-PSReadLineKeyHandler -Chord Ctrl-a -Function BeginningOfLine
 Set-PSReadLineKeyHandler -Chord Ctrl-e -Function EndOfLine
+Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'

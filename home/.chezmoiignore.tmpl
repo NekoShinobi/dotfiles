@@ -15,8 +15,10 @@
 {{ end }}
 
 {{ if ne .chezmoi.os "windows" }}
+.chezmoiscripts/windows/**
 .config/yasb
 .config/glzr
+Documents/**
 {{ end }}
 
 {{ if eq .chezmoi.os "windows" }}
@@ -25,4 +27,3 @@
 .config/git
 .config/tmux
 {{ end }}
-
