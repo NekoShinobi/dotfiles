@@ -4,5 +4,6 @@
 set -eufo pipefail
 
 mkdir -p "$HOME/.local/bin"
+mkdir -p "$HOME/.local/share/fonts"
 curl -sS https://starship.rs/install.sh | sh -s -- --yes -b "$HOME/.local/bin"
 {{ end }}
