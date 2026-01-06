@@ -18,6 +18,10 @@ config.font = wezterm.font("JetBrainsMono Nerd Font")
 
 config.enable_tab_bar = false
 
+{{ if eq .osid "linux-endeavouros" -}}
+config.enable_wayland = true
+{{- end }}
+
 config.colors = {
     cursor_bg = "#FFBABE",
     cursor_border = "#FFBABE"

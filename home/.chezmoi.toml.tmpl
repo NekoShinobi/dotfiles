@@ -41,9 +41,3 @@ sourceDir = {{ joinPath .chezmoi.homeDir ".config/coderv2/dotfiles" | quote }}
     ]
     email = {{ $email | quote }}
 
-
-{{- if not $headless }}
-[edit]
-    command = "code-insiders"
-    args = ["--wait"]
-{{ end }}
