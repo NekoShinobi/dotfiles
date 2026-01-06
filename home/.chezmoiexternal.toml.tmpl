@@ -113,8 +113,6 @@
     refreshPeriod = "72h"
     stripComponents = 1
 
-{{- end }}
-
 {{- if and (not .ephemeral) (not .headless) }}
 {{-   $fontDir := "" }}
 {{-   if eq .chezmoi.os "darwin" }}
@@ -123,13 +121,16 @@
 {{-     $fontDir = ".local/share/fonts" }}
 {{-   end }}
 {{-   range (list
-        "JetBrainsMono-Regular.otf"
-        "JetBrainsMono-Medium.otf"
-        "JetBrainsMono-Bold.otf"
-        "JetBrainsMono-Italic.otf") }}
+        "JetBrainsMonoNerdFontMono-Regular.otf"
+        "JetBrainsMonoNerdFontMono-Medium.otf"
+        "JetBrainsMonoNerdFontMono-Bold.otf"
+        "JetBrainsMonoNerdFontMono-Italic.otf") }}
 ["{{ $fontDir }}/{{ . }}"]
-    type = "file"
-    url = "https://github.com/JetBrains/JetBrainsMono/raw/refs/heads/master/fonts/otf/{{ . }}"
+    type = "archive"
+    url = {{ gitHubLatestReleaseAssetURL "ryanoasis/nerd-fonts" "JetBrainsMono.tar.xz " | quote }}
     refreshPeriod = "168h"
+    path = "{{ . }}"
 {{-   end }}
+{{- end }}
+
 {{- end }}
