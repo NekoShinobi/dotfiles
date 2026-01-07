@@ -7,8 +7,8 @@ config.default_prog = { "pwsh.exe", "-NoLogo"}
 config.window_decorations = "RESIZE"
 
 {{ else -}}
-# Causes problems on window managers.
-config.window_decorations = "None"
+-- Causes problems on window managers.
+config.window_decorations = "NONE"
 
 {{- end }}
 
