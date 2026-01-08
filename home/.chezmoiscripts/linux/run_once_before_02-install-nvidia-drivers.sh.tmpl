@@ -1,0 +1,38 @@
+{{- if eq .osid "linux-endeavouros" -}}
+
+{{ $pacpack := list
+    "nvidia-dkms"
+    "nvidia-utils"
+    "egl-wayland"
+    -}}
+
+{{ $yaypack := list
+    "bat" -}}
+
+{{ $sudo := "sudo " -}}
+{{ if eq .chezmoi.username "root" -}}
+{{   $sudo = "" -}}
+{{ end -}}
+
+#!/bin/bash
+
+set -eufo pipefail
+
+# Check first if NVidia GPU exists.
+
+nvidia_exists=$(lspci -k -d ::03xx | grep NVIDIA)
+
+if [[ -n "$nvidia_exists" ]]; then
+    echo "NVIDIA GPU detected. Proceeding with driver installation."
+else
+    echo "No NVIDIA GPU detected. Exiting script."
+    exit 0
+fi
+
+{{ $sudo }}pacman -Sy --needed {{ $pacpack | join " " }}
+
+# yay -Sy --needed {{ $yaypack | join " " }}
+
+
+
+{{ end -}}

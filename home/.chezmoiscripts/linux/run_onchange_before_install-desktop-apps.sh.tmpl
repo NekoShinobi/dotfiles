@@ -1,0 +1,37 @@
+{{- if eq .osid "endeavouros" -}}
+
+{{ $pacpack := list
+    "bitwarden"
+    "gnome-keyring"
+    "libsecret"
+    "yubikey-manager" -}}
+
+{{ $yaypack := list
+    "librewolf-bin"
+    "jellyfin-desktop" -}}
+
+{{ $sudo := "sudo " -}}
+{{ if eq .chezmoi.username "root" -}}
+{{   $sudo = "" -}}
+{{ end -}}
+
+#!/bin/bash
+
+# These take too long, so I'm leaving them commented out.
+# linux-wallpaperengine
+# steam
+# discord
+
+
+set -eufo pipefail
+
+
+{{ $sudo }}pacman -Sy --needed {{ $pacpack | join " " }}
+
+yay -Sy --needed {{ $yaypack | join " " }}
+
+# YubiKey
+{{ $sudo }}systemctl enable pcscd.service
+
+
+{{ end -}}

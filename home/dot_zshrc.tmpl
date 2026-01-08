@@ -58,6 +58,9 @@ alias cat=batcat
 alias fd=fdfind
 {{- end }}
 
+alias top=WEBKIT_DISABLE_DMABUF_RENDERER=1 NeoHtop
+
+
 {{ if stat (printf "%s/.local/bin/nvim" .chezmoi.homeDir) -}}
 export EDITOR=$HOME/.local/bin/nvim
 alias vim=$HOME/.local/bin/nvim

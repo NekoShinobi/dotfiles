@@ -1,73 +1,151 @@
 {
-  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-  "logo": {
-    "type": "file",
-    {{- if eq .osid "windows" }}
-    "source": "C:/Users/user/.config/fastfetch/ascii.txt",
-    {{- else }}
-    "source": "~/.config/fastfetch/ascii.txt",
-    {{- end }}
-    "color": {
-      "1": "#F5E0DC",
-      "2": "#F2CDCD",
-      "3": "#F5C2E7",
-      "4": "#FAB387",
-      "5": "#F9E2AF",
-      "6": "#A6E3A1",
-      "7": "#94E2D5",
-      "8": "#89DCEB",
-      "9": "#74C7EC",
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "type": "file",
+        {{- if eq .osid "windows" }}
+        "source": "C:/Users/user/.config/fastfetch/ascii.txt",
+        {{- else if eq .osid "darwin" }}
+        "source": "~/.config/fastfetch/soar.txt",
+        {{- else }}
+        "source": "~/.config/fastfetch/bocchi.txt",
+        {{- end }}
+        "padding": {
+            "top": 0,
+            "left": 2
+        },
+        "color": {
+          "1": "#F5E0DC",
+          "2": "#F2CDCD",
+          "3": "#F5C2E7",
+          "4": "#FAB387",
+          "5": "#F9E2AF",
+          "6": "#A6E3A1",
+          "7": "#94E2D5",
+          "8": "#89DCEB",
+          "9": "#74C7EC",
+        },
     },
-    "padding": {
-      "top": 1,
-      "right": 3,
+    "display": {
+        "separator": "",
+        "constants": [
+            "──────────────" // {$1}, used in Custom module
+        ],
+        "key": {
+            "width": 10
+        },
     },
-  },
-  "display": {
-    "separator": " ",
-  },
-  "modules": [
-    "break",
-    {
-      "type": "title",
-      "color": {
-        "user": "#F5C2E7",
-        "at": "#CDD6F4",
-        "host": "#89DCEB",
-      },
-    },
-    "break",
-    {
-      "type": "os",
-      "key": "",
-      "keyColor": "#89DCEB",
-    },
-    {
-      "type": "cpu",
-      "key": "",
-      "keyColor": "#F5C2E7",
-    },
-    {
-      "type": "board",
-      "key": "󰚗",
-      "keyColor": "#FAB387",
-    },
-    {
-      "type": "memory",
-      "key": "",
-      "keyColor": "#A6E3A1",
-      "format": "{used} / {total} ({percentage})",
-    },
-    {
-      "type": "disk",
-      "key": "",
-      "keyColor": "#94E2D5",
-    },
-    "break",
-    {
-      "type": "colors",
-      "symbol": "circle",
-    },
-  ],
+    "modules": [
+        "break",
+        {
+            "type": "custom", // HardwareStart
+            // {#1} is equivalent to `\u001b[1m`. {#} is equivalent to `\u001b[m`
+            "format": "{#90}┌{$1} Hardware {$1}{$1}┐{#}"
+        },
+        {
+            "key": "CPU",
+            "type": "cpu",
+            "showPeCoreCount": true,
+            "keyColor": "33"
+        },
+        {
+            "key": "GPU",
+            "type": "gpu",
+            "keyColor": "32"
+        },
+        {
+            "key": "Display",
+            "type": "display",
+            "keyColor": "36"
+        },
+        {
+            "key": "Disk",
+            "type": "disk",
+            "folders": "/",
+            "keyColor": "34"
+        },
+        {
+            "key": "Disk",
+            "type": "disk",
+            "folders": "/home",
+            "keyColor": "94"
+        },
+        {
+            "key": "Memory",
+            "type": "memory",
+            "keyColor": "31"
+        },
+        {
+            "key": "Swap",
+            "type": "swap",
+            "keyColor": "95"
+        },
+        {
+            "type": "custom", // InformationEnd
+            "format": "{#90}└{$1}────────────────────────{$1}┘{#}"
+        },
+        {
+            "type": "custom", // SoftwareStart
+            // {#1} is equivalent to `\u001b[1m`. {#} is equivalent to `\u001b[m`
+            "format": "{#90}┌{$1} Software {$1}{$1}┐{#}"
+        },
+        {
+            "key": "OS",
+            "type": "os",
+            "keyColor": "33"
+        },
+        {
+            "key": "Kernel",
+            "type": "kernel",
+            "keyColor": "93"
+        },
+        {
+            "key": "DM",
+            "type": "lm",
+            "keyColor": "35"
+        },
+        {
+            "key": "DE",
+            "type": "de",
+            "keyColor": "91"
+        },
+        {
+            "key": "WM",
+            "type": "wm",
+            "keyColor": "32"
+        },
+        {
+            "key": "Theme",
+            "type": "theme",
+            "keyColor": "92"
+        },
+        {
+            "key": "Icons",
+            "type": "icons",
+            "keyColor": "36"
+        },
+        {
+            "key": "Font",
+            "type": "font",
+            "keyColor": "96"
+        },
+        {
+            "key": "Font",
+            "type": "terminalfont",
+            "keyColor": "34"
+        },
+        {
+            "key": "Terminal",
+            "type": "terminal",
+            "keyColor": "94"
+        },
+        {
+            "key": "Shell",
+            "type": "shell",
+            "keyColor": "34"
+        },
+        {
+            "type": "custom", // InformationEnd
+            "format": "{#90}└{$1}────────────────────────{$1}┘{#}"
+        }
+    ]
 }
-

@@ -4,6 +4,7 @@
     "bat"
     "fastfetch"
     "git"
+    "github-cli"
     "ripgrep"
     "tldr"
     "tmux"
@@ -31,8 +32,10 @@ set -eufo pipefail
 {{ $sudo }}apt-get install -y {{ $packages | join " " }}
 {{ end -}}
 
-{{ if eq .osid "linux-arch" "linux-endeavouros" -}}
-{{ $sudo }}pacman -Sy {{ $packages | join " " }}
+{{ if or (eq .osid "linux-arch") (eq .osid "linux-endeavouros") -}}
+{{ $sudo }}pacman -Sy --needed {{ $packages | join " " }}
 {{ end -}}
+
+systemctl --user enable --now hyprpolkitagent.service
 
 {{ end -}}
