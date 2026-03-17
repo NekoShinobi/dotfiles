@@ -1,0 +1,11 @@
+[flavor]
+light = "noctalia"
+dark = "noctalia"
+
+[spot]
+border = { fg = "#4fa6ed" }
+title = { fg = "#4fa6ed" }
+
+# Table.
+tbl_cell = { fg = "#4fa6ed", reversed = true }
+tbl_col = { fg = "#4fa6ed" }

@@ -1,0 +1,14 @@
+{{ if and (eq .chezmoi.os "linux") -}}
+
+{{ $packages := list
+    "boydaihungst/file-extra-metadata"
+    "walldmtd/fs-usage"
+    "yazi-rs/plugins:full-border"
+    "yazi-rs/flavors:catppuccin-macchiato"
+    "boydaihungst/mediainfo" -}}
+
+#!/bin/bash
+
+# ya pkg add {{ $packages | join " " }}
+
+{{ end -}}

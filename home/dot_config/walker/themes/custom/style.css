@@ -40,8 +40,9 @@
 popover {
   background: lighter(@window_bg_color);
   border: 1px solid darker(@accent_bg_color);
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 10px;
+  opacity: 0.1;
 }
 
 .normal-icons {
@@ -60,11 +61,12 @@ scrollbar {
   box-shadow:
     0 19px 38px rgba(0, 0, 0, 0.3),
     0 15px 12px rgba(0, 0, 0, 0.22);
-  background: @window_bg_color;
+  background: darker(@surface1);
   padding: 1px;
-  border-radius: 8px;
-  border: 0px solid @border_color;
+  border-radius: 12px;
+  border: 1px solid @accent_bg_color;
   padding-bottom: 3px;
+  opacity: 0.9;
 }
 
 .preview-box,
@@ -77,22 +79,25 @@ scrollbar {
 }
 
 .search-container {
-  font-size: 32px;
-  border-radius: 0px;
+  font-size: 26px;
+  border-radius: 20px;
+  border: 26px solid darker(@surface1);
 }
 
 .input placeholder {
   opacity: 0.5;
+  font-style: italic;
 }
 
 .input selection {
-  background: lighter(lighter(lighter(@window_bg_color)));
+  background: darker(@surface0);
 }
 
 .input {
   caret-color: @theme_fg_color;
-  background: lighter(@window_bg_color);
+  background: darker(@surface1);
   padding: 10px;
+  border-radius: 12px;
   color: @theme_fg_color;
 }
 
