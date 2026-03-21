@@ -1,0 +1,40 @@
+{
+  "en": {
+    "name": "APC UPS Monitor",
+    "description": "Monitor APC UPS status via apcupsd",
+    "settings": {
+      "general": "General Settings",
+      "display": "Display",
+      "appearance": "Appearance",
+      "thresholds": "Alert Thresholds",
+      "actions": "Actions",
+      "updateInterval": "Update Interval",
+      "showBatteryPercentage": "Show Battery Percentage",
+      "showLoadPercentage": "Show Load Percentage",
+      "widgetIcon": "Widget Icon",
+      "warningLevel": "Warning Battery Level",
+      "criticalLevel": "Critical Battery Level",
+      "refresh": "Refresh UPS Status"
+    },
+    "status": {
+      "online": "Online",
+      "onBattery": "On Battery",
+      "charging": "Charging",
+      "unavailable": "Unavailable",
+      "unknown": "Unknown"
+    },
+    "panel": {
+      "status": "Status",
+      "battery": "Battery",
+      "power": "Power",
+      "additionalInfo": "Additional Information",
+      "charge": "Charge",
+      "runtime": "Runtime Remaining",
+      "lineVoltage": "Line Voltage",
+      "load": "Load",
+      "unavailableMessage": "UPS Unavailable",
+      "checkApcupsd": "Check that apcupsd is installed and running",
+      "retry": "Retry"
+    }
+  }
+}

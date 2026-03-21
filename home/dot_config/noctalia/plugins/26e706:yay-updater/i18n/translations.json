@@ -1,0 +1,29 @@
+{
+  "en": {
+    "settings": {
+      "hideWidget": {
+        "label": "Hide widget when no updates",
+        "desc": "Hide the bar widget when there are no updates available"
+      },
+      "autoRefresh": {
+        "label": "Auto-refresh on panel open",
+        "desc": "Automatically check for updates when opening the panel"
+      },
+      "iconName": {
+        "label": "Widget Icon",
+        "desc": "Icon displayed on the bar widget"
+      },
+      "changeIcon": {
+        "label": "Change Icon"
+      },
+      "updateInterval": {
+        "label": "Check Interval",
+        "desc": "How often to check for updates (in hours)"
+      },
+      "terminalCommand": {
+        "label": "Terminal Command",
+        "desc": "Terminal emulator to use for running updates. Use {} as placeholder for the command."
+      }
+    }
+  }
+}

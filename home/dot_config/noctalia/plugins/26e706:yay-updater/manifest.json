@@ -1,0 +1,33 @@
+{
+  "id": "yay-updater",
+  "name": "Yay Updater",
+  "version": "1.5.2",
+  "minNoctaliaVersion": "4.0.0",
+  "author": "NekoShinobi",
+  "license": "MIT",
+  "repository": "https://github.com/NekoShinobi/noctalia-plugins",
+  "description": "Check for Arch Linux updates via yay every 4 hours and provides visual update count on the bar. Click to view package list and update.",
+  "tags": [
+    "Bar",
+    "Panel",
+    "System"
+  ],
+  "entryPoints": {
+    "main": "Main.qml",
+    "barWidget": "BarWidget.qml",
+    "panel": "Panel.qml",
+    "settings": "Settings.qml"
+  },
+  "dependencies": {
+    "plugins": []
+  },
+  "metadata": {
+    "defaultSettings": {
+      "updateIntervalHours": 4,
+      "terminalCommand": "foot -e",
+      "iconName": "download",
+      "hideOnZero": false,
+      "autoRefreshOnOpen": true
+    }
+  }
+}

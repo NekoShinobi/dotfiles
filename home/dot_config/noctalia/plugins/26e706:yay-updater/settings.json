@@ -1,0 +1,7 @@
+{
+  "updateIntervalHours": 4,
+  "terminalCommand": "wezterm -e",
+  "iconName": "cloud-down",
+  "hideOnZero": false,
+  "autoRefreshOnOpen": true
+}

@@ -1,0 +1,35 @@
+{
+  "id": "apcupsd",
+  "name": "APC UPS Monitor",
+  "version": "1.1.0",
+  "minNoctaliaVersion": "4.0.0",
+  "author": "NekoShinobi",
+  "license": "MIT",
+  "repository": "https://github.com/NekoShinobi/noctalia-plugins",
+  "description": "Monitor APC UPS status via apcupsd. Shows battery level, load, runtime, and other vital UPS information on the bar.",
+  "tags": [
+    "Bar",
+    "Panel",
+    "System",
+    "Hardware"
+  ],
+  "entryPoints": {
+    "main": "Main.qml",
+    "barWidget": "BarWidget.qml",
+    "panel": "Panel.qml",
+    "settings": "Settings.qml"
+  },
+  "dependencies": {
+    "plugins": []
+  },
+  "metadata": {
+    "defaultSettings": {
+      "updateIntervalSeconds": 5,
+      "iconName": "battery-charging",
+      "showPercentage": true,
+      "showLoad": false,
+      "warnBatteryPercent": 50,
+      "criticalBatteryPercent": 20
+    }
+  }
+}

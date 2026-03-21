@@ -1,0 +1,33 @@
+{
+    "sources": [
+        {
+            "enabled": true,
+            "name": "Noctalia Plugins",
+            "url": "https://github.com/noctalia-dev/noctalia-plugins"
+        },
+        {
+            "enabled": true,
+            "name": "Personal",
+            "url": "https://github.com/NekoShinobi/noctalia-plugins"
+        }
+    ],
+    "states": {
+        "26e706:apcupsd": {
+            "enabled": true,
+            "sourceUrl": "https://github.com/NekoShinobi/noctalia-plugins"
+        },
+        "26e706:yay-updater": {
+            "enabled": true,
+            "sourceUrl": "https://github.com/NekoShinobi/noctalia-plugins"
+        },
+        "assistant-panel": {
+            "enabled": true,
+            "sourceUrl": "https://github.com/noctalia-dev/noctalia-plugins"
+        },
+        "ip-monitor": {
+            "enabled": true,
+            "sourceUrl": "https://github.com/noctalia-dev/noctalia-plugins"
+        }
+    },
+    "version": 2
+}
