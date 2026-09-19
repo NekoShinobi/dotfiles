@@ -6,7 +6,6 @@
     "hyprcursor"
     "hyprland"
     "hyprpicker"
-    "wlsunset"
     "libnewt"
     "uwsm"
     "xdg-desktop-portal-hyprland"
@@ -23,13 +22,13 @@
     "flameshot"
     "hyprpolkitagent"
     "matugen-bin"
-    "noctalia-shell"
+    "noctalia"
     "python-pywalfox"
     "millennium"
     "adw-gtk-theme"
     "nwg-look"
     "qt6ct"
-    "sddm-git"
+    "noctalia-greeter"
     "wezterm-nightly-bin"
     "zsh" -}}
 
@@ -53,6 +52,12 @@ systemctl --user enable --now hyprpolkitagent.service
 # Install SDDM Theme
 
 
+# Install greetd
+# set /etc/greetd/config.toml
+# command = "/usr/bin/noctalia-greeter-session"
+# user = "greeter"
+# systemctl enable --now greetd
+#
 
 
 {{ end -}}

@@ -1,8 +1,0 @@
-{
-  "updateIntervalSeconds": 15,
-  "iconName": "battery-charging",
-  "showPercentage": true,
-  "showLoad": false,
-  "warnBatteryPercent": 50,
-  "criticalBatteryPercent": 20
-}
