@@ -140,13 +140,6 @@ for i = 1, 5 do
 end
 
 -- Layer rules
-hl.layer_rule({
-	name = "wleave-layerrule",
-	match = { namespace = "wleave" },
-	blur = true,
-	dim_around = true,
-	ignore_alpha = 0.5,
-})
 
 hl.layer_rule({
 	name = "walker-blur-layerrule",
@@ -188,7 +181,6 @@ hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd(terminal .. " start --class yazi -- yazi"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("~/.config/hypr/scripts/screenshot.sh"))
 hl.bind(mainMod .. " + CTRL + SHIFT + S", hl.dsp.exec_cmd("flameshot gui"))
-hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("~/.config/hypr/scripts/wlogout.sh"))
 hl.bind(mainMod .. " + SHIFT + I", hl.dsp.exec_cmd("hyprpicker | clipse -a"))
 hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd("zeditor"))
 

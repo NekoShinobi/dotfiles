@@ -1,6 +1,6 @@
 {{- if eq .osid "linux-endeavouros" -}}
 
-{{ $pacpack := list
+{{ $yaypack := list
     "nautilus"
     "fcitx5"
     "hyprcursor"
@@ -8,17 +8,13 @@
     "hyprpicker"
     "libnewt"
     "uwsm"
+    "greetd"
     "xdg-desktop-portal-hyprland"
-    "xdg-desktop-portal-gtk" -}}
-
-{{ $yaypack := list
+    "xdg-desktop-portal-gtk"
     "clipse"
     "cava"
     "walker"
-    "elephant-desktopapplications"
-    "elephant-files"
-    "elephant-clipboard"
-    "elephant-calc"
+    "elephant-all-bin"
     "flameshot"
     "hyprpolkitagent"
     "matugen-bin"
@@ -30,7 +26,12 @@
     "qt6ct"
     "noctalia-greeter"
     "wezterm-nightly-bin"
-    "zsh" -}}
+    "wiremix"
+    "impala"
+    "brightnessctl"
+    "playerctl"
+    "imv-git"
+    "grimblast-git" -}}
 
 {{ $sudo := "sudo " -}}
 {{ if eq .chezmoi.username "root" -}}
@@ -42,22 +43,37 @@
 set -eufo pipefail
 
 
-{{ $sudo }}pacman -Sy --needed {{ $pacpack | join " " }}
-
 yay -Sy --needed {{ $yaypack | join " " }}
 
 elephant service enable
 systemctl --user enable --now hyprpolkitagent.service
 
-# Install SDDM Theme
 
+# --- greetd + noctalia-greeter -------------------------------------------
+# noctalia-greeter's post-install hook creates the `greeter` user and
+# /var/lib/noctalia-greeter; we only have to point greetd at it.
+GREETD_CONF=/etc/greetd/config.toml
+if ! grep -q 'noctalia-greeter-session' "$GREETD_CONF" 2>/dev/null; then
+    [ -f "$GREETD_CONF" ] && {{ $sudo }}cp -a "$GREETD_CONF" "$GREETD_CONF.bak"
+    {{ $sudo }}tee "$GREETD_CONF" >/dev/null <<'GREETD_CONFIG'
+[terminal]
+vt = 1
 
-# Install greetd
-# set /etc/greetd/config.toml
-# command = "/usr/bin/noctalia-greeter-session"
-# user = "greeter"
-# systemctl enable --now greetd
-#
+[default_session]
+command = "/usr/bin/noctalia-greeter-session"
+user = "greeter"
+GREETD_CONFIG
+fi
+
+# Make sure no other display manager fights greetd for the VT.
+for dm in sddm lightdm gdm ly; do
+    if systemctl is-enabled --quiet "$dm" 2>/dev/null; then
+        {{ $sudo }}systemctl disable --now "$dm"
+    fi
+done
+
+{{ $sudo }}systemctl enable greetd
+
 
 
 {{ end -}}

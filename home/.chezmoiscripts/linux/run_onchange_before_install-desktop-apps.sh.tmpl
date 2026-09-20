@@ -1,14 +1,26 @@
 {{- if eq .osid "linux-endeavouros" -}}
 
-{{ $pacpack := list
+{{ $yaypack := list
     "bitwarden"
     "gnome-keyring"
     "libsecret"
-    "yubikey-manager" -}}
-
-{{ $yaypack := list
+    "yubikey-manager"
     "librewolf-bin"
-    "jellyfin-desktop" -}}
+    "jellyfin-tui"
+    "jellium-desktop-bin"
+    "proton-mail-bin"
+    "pinta"
+    "libreoffice-fresh"
+    "celluloid"
+    "anki"
+    "rustdesk-bin"
+    "tigervnc"
+    "obs-studio"
+    "visual-studio-code-bin"
+    "zed-preview-bin"
+    "claude-code"
+    "openai-codex-bin"
+    "vesktop-git" -}}
 
 {{ $sudo := "sudo " -}}
 {{ if eq .chezmoi.username "root" -}}
@@ -24,9 +36,6 @@
 
 
 set -eufo pipefail
-
-
-{{ $sudo }}pacman -Sy --needed {{ $pacpack | join " " }}
 
 yay -Sy --needed {{ $yaypack | join " " }}
 

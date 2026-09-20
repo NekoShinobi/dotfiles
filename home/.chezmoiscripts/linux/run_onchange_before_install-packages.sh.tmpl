@@ -5,13 +5,18 @@
     "git"
     "ripgrep"
     "tldr"
+    "just"
+    "dust"
+    "mediainfo"
+    "btop"
+    "bottom"
     "zsh" -}}
 
 {{ if eq .osid "linux-ubuntu" -}}
 {{   $packages  = mustAppend $packages "fd-find" -}}
 {{ end -}}
 
-{{ if eq .osid "linux-arch" -}}
+{{ if or (eq .osid "linux-arch") (eq .osid "linux-endeavouros")  -}}
 {{   $packages = mustAppend $packages "fd" -}}
 {{   $packages = mustAppend $packages "github-cli" -}}
 {{   $packages = mustAppend $packages "fastfetch" -}}

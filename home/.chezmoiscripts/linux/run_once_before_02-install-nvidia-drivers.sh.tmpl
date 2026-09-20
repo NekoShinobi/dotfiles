@@ -1,7 +1,10 @@
 {{- if eq .osid "linux-endeavouros" -}}
 
 {{ $pacpack := list
-    "nvidia-dkms"
+    "nvidia-open-dkms"
+    "lib32-nvidia-utils"
+    "libva-nvidia-driver"
+    "linux-firmware-nvidia"
     "nvidia-utils"
     "egl-wayland"
     -}}
@@ -16,10 +19,11 @@
 
 #!/bin/bash
 
+set -eufo pipefail
 
 # Check first if NVidia GPU exists.
 
-nvidia_exists=$(lspci -k -d ::03xx | grep NVIDIA)
+nvidia_exists=$(lspci -k -d ::03xx | grep NVIDIA || true)
 
 if [[ -n "$nvidia_exists" ]]; then
     echo "NVIDIA GPU detected. Proceeding with driver installation."
